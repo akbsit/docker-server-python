@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  python:
+    build:
+      context: ./
+      dockerfile: ./services/python/Dockerfile
+      args:
+        - PYTHON_VERSION={{ PYTHON_VERSION }}
+        - REQUIREMENTS_FILE={{ REQUIREMENTS_FILE }}
+        - EXPOSE={{ CONTAINER_PORT }}
+        - WORKDIR={{ CONTAINER_WORKDIR_PATH }}
+    container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-python
+    volumes:
+      - {{ EXTERNAL_WORKDIR_PATH }}:{{ CONTAINER_WORKDIR_PATH }}
+    restart: on-failure
+    ports:
+      - '{{ EXTERNAL_PORT }}:{{ CONTAINER_PORT }}'
+    command: python main.py
