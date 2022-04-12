@@ -10,7 +10,8 @@ services:
         - PYTHON_VERSION={{ PYTHON_VERSION }}
         - REQUIREMENTS_FILE={{ REQUIREMENTS_FILE }}
         - EXPOSE={{ CONTAINER_PORT }}
-        - WORKDIR={{ CONTAINER_WORKDIR_PATH }}
+        - CONTAINER_WORKDIR={{ CONTAINER_WORKDIR_PATH }}
+        - EXTERNAL_WORKDIR={{ EXTERNAL_WORKDIR_PATH }}
     container_name: {{ CONTAINER_PREFIX }}{{ CONTAINER_NAME }}-python
 {% if DEVELOPMENT %}
     environment:

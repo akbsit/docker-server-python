@@ -2,7 +2,7 @@
 
 Before you start working with the server, you must install: **docker**, **ansible**, **make**.
 
-After starting the server, it can be seen at `http://localhost:5000/`, display the contents of the file `./app/main.py`.
+After starting the server, it can be seen at `http://localhost/`, display the contents of the file `./www/main.py`.
 
 ![screenshot-1](.docs/screenshot-1.png)
 
@@ -17,11 +17,11 @@ After starting the server, it can be seen at `http://localhost:5000/`, display t
 
 * `ansible` - configuration files;
 * `service` - connected services;
-* `app` - server root folder.
+* `www` - server root folder.
 
 ## Useful links
 
-* [localhost:5000](http://localhost:5000/).
+* [localhost:80](http://localhost/).
 
 ## Control commands
 
