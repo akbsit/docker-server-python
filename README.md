@@ -6,15 +6,15 @@ After starting the server, it can be seen at `http://localhost/`, display the co
 
 ![screenshot-1](.docs/screenshot-1.png)
 
-> To configure the server, you need to configure the file `./config.yml` and run the command `make start`.
+> To configure the server, you need to configure the file `./config.yml` and run the command `make local-start`.
 
 ## Characteristics
 
-* python;
-* flask.
+* workspace.
 
 ## Server structure
 
+* `.docs` - documentations data;
 * `ansible` - configuration files;
 * `service` - connected services;
 * `www` - server root folder.

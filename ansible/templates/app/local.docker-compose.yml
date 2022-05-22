@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  workspace:
+    build:
+      context: ./
+      dockerfile: ./services/workspace/Dockerfile
+      args:
+        - PYTHON_VERSION={{ PYTHON_VERSION }}
+        - REQUIREMENTS_FILE=${REQUIREMENTS_FILE}
+        - CONTAINER_EXPOSE=${CONTAINER_WORKSPACE_PORT}
+        - CONTAINER_WORKDIR=${CONTAINER_WORKSPACE_PATH}
+        - EXTERNAL_WORKDIR=${EXTERNAL_WORKSPACE_PATH}
+    container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-workspace
+{% if DEVELOPMENT %}
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True
+{% endif %}
+    volumes:
+      - ${EXTERNAL_WORKSPACE_PATH}:${CONTAINER_WORKSPACE_PATH}
+    restart: on-failure
+    ports:
+      - '${EXTERNAL_WORKSPACE_PORT}:${CONTAINER_WORKSPACE_PORT}'
+    command: python main.py
