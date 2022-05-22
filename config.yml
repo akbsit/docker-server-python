@@ -1,7 +1,4 @@
 CONTAINER_NAME: default
 
-# Server settings
-DEVELOPMENT: true
-
 # Service versions
 PYTHON_VERSION: 3.9

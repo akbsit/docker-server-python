@@ -13,11 +13,9 @@ services:
         - CONTAINER_WORKDIR=${CONTAINER_WORKSPACE_PATH}
         - EXTERNAL_WORKDIR=${EXTERNAL_WORKSPACE_PATH}
     container_name: ${CONTAINER_PREFIX}{{ CONTAINER_NAME }}-workspace
-{% if DEVELOPMENT %}
     environment:
-      - FLASK_ENV=development
-      - PYTHONUNBUFFERED=True
-{% endif %}
+      - FLASK_ENV=${FLASK_ENV}
+      - PYTHONUNBUFFERED=${PYTHONUNBUFFERED}
     volumes:
       - ${EXTERNAL_WORKSPACE_PATH}:${CONTAINER_WORKSPACE_PATH}
     restart: on-failure

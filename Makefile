@@ -26,3 +26,6 @@ docker-bash:
 docker-status:
 	docker ps
 	docker-compose ps
+
+refresh-workspace:
+	docker-compose up -d --force-recreate --build workspace

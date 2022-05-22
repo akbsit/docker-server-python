@@ -53,3 +53,9 @@ make docker-bash
 ```bash
 make docker-status
 ```
+
+### Refresh workspace
+
+```bash
+make refresh-workspace
+```
